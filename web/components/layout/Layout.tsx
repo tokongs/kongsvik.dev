@@ -1,4 +1,5 @@
-import { Box, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import Nav from "../nav/Nav";
 
 type LayoutProps = {
     children: React.ReactNode,
@@ -7,10 +8,8 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
 
     return (
-        <Box w="100%">
-            <Box m={6}>
-               <Heading fontWeight="bold">KONGSVIK</Heading>
-            </Box>
+        <Box w="100%" minH="100vh">
+            <Nav /> 
             <Center>
                 {children}
             </Center>

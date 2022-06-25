@@ -4,6 +4,21 @@ import Layout from "../components/layout/Layout";
 import { extendTheme } from '@chakra-ui/react'
 
 const theme = extendTheme({
+  colors: {
+    accent_pink: {
+      100: "#EF476F",
+    },
+    accent_yellow: {
+      100: "#FFD166"
+    },
+    accent_green: {
+      100: "#06D6A0"
+    },
+    accent_blue: {
+      100: "#118AB2",
+      200: "#073B4C"
+    }
+  },
   fonts: {
     heading: `'Inter', sans-serif`,
     body: `'Roboto', sans-serif`,
