@@ -1,7 +1,7 @@
 import { Box, Text, TextProps } from "@chakra-ui/react"
 import { useEffect, useState } from "react";
 
-const Clock = ({ locale, ...props }: { locale?: string, props: TextProps }) => {
+const Clock = ({ locale, ...props }: { locale?: string} & TextProps) => {
     const genTimeString = () => new Date().toLocaleTimeString([locale ?? "no"], { hour: '2-digit', minute: '2-digit' })
     const [timeString, setTimeString] = useState(genTimeString())
 
@@ -21,7 +21,7 @@ const Clock = ({ locale, ...props }: { locale?: string, props: TextProps }) => {
             if (timer != null)
                 clearInterval(timer);
         }
-    }, [setTimeString])
+    }, [setTimeString, genTimeString])
 
     return <Text {...props}>{timeString}</Text>
 }

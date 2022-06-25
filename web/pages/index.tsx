@@ -8,7 +8,7 @@ const Home: NextPage = () => {
       <Heading mb={12} size="2xl">
         Welcome
       </Heading>
-      <Clock color="accent_green.100" fontSize="8xl"/>
+      <Clock color={"accent_green.100"} fontSize="8xl"/>
     </Stack>
   )
 }

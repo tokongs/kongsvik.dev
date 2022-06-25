@@ -13,7 +13,7 @@ const Nav = () => {
             p={6}
         >
             <Flex align="center">
-                <Heading color="accent_pink.100" fontWeight="black">KONGSVIK</Heading>
+                <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
             </Flex>
         </Flex>
     )
