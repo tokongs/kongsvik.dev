@@ -1,6 +1,6 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, FlexProps, Heading } from "@chakra-ui/react";
 
-const Nav = () => {
+const Nav = (props: FlexProps) => {
 
     return (
         <Flex
@@ -8,12 +8,15 @@ const Nav = () => {
             align="center"
             justify="space-between"
             wrap="wrap"
-            w="100%"
-            mb={6}
-            p={6}
+            py={4}
+            px={12}
+            {...props}
         >
             <Flex align="center">
                 <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
+            </Flex>
+            <Flex align="center" mr={"12em"}>
+                <Heading size={"md"}>BLOG</Heading>
             </Flex>
         </Flex>
     )
