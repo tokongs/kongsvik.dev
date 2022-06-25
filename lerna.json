@@ -1,8 +1,0 @@
-{
-  "packages": [
-    "studio",
-    "web"
-  ],
-  "useNx": false,
-  "version": "0.0.0"
-}
