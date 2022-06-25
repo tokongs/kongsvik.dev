@@ -1,4 +1,5 @@
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import Footer from "../footer/Footer";
 import Nav from "../nav/Nav";
 
 type LayoutProps = {
@@ -8,12 +9,15 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
 
     return (
-        <Box w="100%" minH="100vh">
-            <Nav /> 
-            <Center>
-                {children}
-            </Center>
-        </Box>
+        <Flex w="100%" minH={"100vh"} direction={"column"}>
+            <Box>
+                <Nav />
+                <Center>
+                    {children}
+                </Center>
+            </Box>
+            <Footer mt={"auto"}/> 
+        </Flex>
     )
 }
 
