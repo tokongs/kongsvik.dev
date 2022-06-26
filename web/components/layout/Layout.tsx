@@ -9,14 +9,12 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
 
     return (
-        <Flex w="100%" minH={"100vh"} direction={"column"}>
-            <Box>
-                <Nav />
-                <Center>
-                    {children}
-                </Center>
+        <Flex w="100%" h={"100vh"} direction={"column"}>
+            <Nav m={0} />
+            <Box m={"auto"}>
+                {children}
             </Box>
-            <Footer mt={"auto"}/> 
+            <Footer mt={"auto"} />
         </Flex>
     )
 }

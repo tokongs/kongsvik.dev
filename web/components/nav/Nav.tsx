@@ -1,4 +1,5 @@
-import { Flex, FlexProps, Heading } from "@chakra-ui/react";
+import { Text, Link, Flex, FlexProps, Heading } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 const Nav = (props: FlexProps) => {
 
@@ -13,10 +14,20 @@ const Nav = (props: FlexProps) => {
             {...props}
         >
             <Flex align="center">
-                <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
+                <NextLink href={"/"} passHref>
+                    <Link style={{ textDecoration: 'none' }}>
+                        <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
+                    </Link>
+                </NextLink>
             </Flex>
             <Flex align="center" mr={"12em"}>
-                <Heading size={"md"}>BLOG</Heading>
+                <NextLink href={"/blog"} passHref>
+                    <Link style={{ textDecoration: 'none' }}>
+                        <Text fontSize={"2em"} _hover={{ color: "accent_pink.100" }} transitionDuration={"0.5"}>
+                            BLOG
+                        </Text>
+                    </Link>
+                </NextLink>
             </Flex>
         </Flex>
     )

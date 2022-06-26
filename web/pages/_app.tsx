@@ -23,6 +23,13 @@ const theme = extendTheme({
     heading: `'Inter', sans-serif`,
     body: `'Roboto', sans-serif`,
   },
+  styles: {
+    global: {
+      body: {
+        backgroundColor: "accent_yellow.100",
+      }
+    }
+  }
 })
 
 const App = ({ Component, pageProps }: AppProps) => {

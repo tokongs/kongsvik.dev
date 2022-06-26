@@ -22,8 +22,9 @@ const Footer = (props: StackProps) => {
         >
             <Text pt={6}>Tobias Slettemoen Kongsvik</Text>
             <Stack direction={'row'} spacing={2}>
-                <SocialIcon url="https://github.com/tokongs" />
-                <SocialIcon url="https://www.linkedin.com/in/tobiaskongsvik" />
+                <SocialIcon url="https://github.com/tokongs" bgColor='#06D6A0'/>
+                <SocialIcon url="https://www.linkedin.com/in/tobiaskongsvik" bgColor='#118AB2'/>
+                <SocialIcon url="mailto:tobias@kongsvik.dev" bgColor="#EF476F"/>
             </Stack>
         </Stack>
     );
