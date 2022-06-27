@@ -1,6 +1,6 @@
 import { Link, Flex, FlexProps, Heading, Box, IconButton, useBreakpointValue, Collapse, Stack, useDisclosure, useOutsideClick } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { ReactNode, useRef, useState } from "react";
+import { useRef } from "react";
 import { MdClose, MdMenu } from "react-icons/md"
 import NavLink from "./NavLink";
 
@@ -25,6 +25,7 @@ const Nav = (props: FlexProps) => {
             py={4}
             px={12}
             direction={["column", "row", "row", "row"]}
+            ref={ref}
             {...props}
         >
             <Flex justify="space-between" w="100%" >
@@ -45,7 +46,7 @@ const Nav = (props: FlexProps) => {
                 </Box>
             </Flex>
             {collapse ?
-                <Collapse in={isOpen} animateOpacity ref={ref}>
+                <Collapse in={isOpen} animateOpacity >
                     <Stack direction={"column"} >
                         <NavLinks />
                     </Stack>
