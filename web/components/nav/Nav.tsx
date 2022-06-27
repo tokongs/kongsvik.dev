@@ -1,4 +1,4 @@
-import { Link, Flex, FlexProps, Heading, Box, IconButton, useBreakpointValue, Collapse, Stack, useDisclosure, useOutsideClick } from "@chakra-ui/react";
+import { Link, Flex, FlexProps, Heading, Box, IconButton, useBreakpointValue, Collapse, Stack, useDisclosure, useOutsideClick, Center, Spacer } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRef } from "react";
 import { MdClose, MdMenu } from "react-icons/md"
@@ -23,27 +23,30 @@ const Nav = (props: FlexProps) => {
             align="center"
             justify="space-between"
             py={4}
-            px={12}
+            px={{base: 2, sm: 12}}
             direction={["column", "row", "row", "row"]}
             ref={ref}
             {...props}
         >
             <Flex justify="space-between" w="100%" >
-                <Flex align="center">
-                    <NextLink href={"/"} passHref>
-                        <Link style={{ textDecoration: 'none' }}>
-                            <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
-                        </Link>
-                    </NextLink>
-                </Flex>
-                <Box display={["block", "none", "none", "none"]}>
+                <Spacer w="33%" display={["block", "none", "none", "none"]} />
+                <Box w="33%" maxW="12em">
+                    <Center>
+                        <NextLink href={"/"} passHref>
+                            <Link style={{ textDecoration: 'none' }}>
+                                <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
+                            </Link>
+                        </NextLink>
+                    </Center>
+                </Box>
+                <Flex w="33%" justify={"right"} display={["flex", "none", "none", "none"]}>
                     <IconButton
                         backgroundColor={"accent_yellow.100"}
                         aria-label="Navbar menu toggle"
                         onClick={onToggle}
                         icon={isOpen ? <MdClose /> : <MdMenu />}
                     />
-                </Box>
+                </Flex>
             </Flex>
             {collapse ?
                 <Collapse in={isOpen} animateOpacity >
