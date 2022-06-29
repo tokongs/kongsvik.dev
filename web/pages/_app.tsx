@@ -1,7 +1,11 @@
 import Head from "next/head"; import type { AppProps } from 'next/app'
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, transition } from '@chakra-ui/react';
 import Layout from "../components/layout/Layout";
 import { extendTheme } from '@chakra-ui/react'
+import { NextPage } from "next";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const theme = extendTheme({
   colors: {
@@ -23,16 +27,26 @@ const theme = extendTheme({
     heading: `'Inter', sans-serif`,
     body: `'Roboto', sans-serif`,
   },
-  styles: {
-    global: {
-      body: {
-        backgroundColor: "accent_yellow.100",
-      }
-    }
-  }
 })
 
-const App = ({ Component, pageProps }: AppProps) => {
+export type NextPageWithColor = NextPage & {
+  getBackgroundColor?: () => string
+}
+
+type AppPropsWithColor = AppProps & {
+  Component: NextPageWithColor
+}
+
+const App = ({ Component, pageProps }: AppPropsWithColor) => {
+  const route = useRouter()
+  const controls = useAnimation()
+  useEffect(() => {
+
+    controls.start({
+      backgroundColor: (Component.getBackgroundColor && Component.getBackgroundColor()) || "#FFF",
+      transition: { duration: 0.5 }
+    })
+  }, [Component])
   return (
     <ChakraProvider theme={theme}>
       <Head>
@@ -41,11 +55,13 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="shortcut icon" href="/public/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <motion.main animate={controls} >
         <Layout>
-          <Component {...pageProps} />
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <Component {...pageProps} key={route.route} />
+          </AnimatePresence>
         </Layout>
-      </main>
+      </motion.main>
     </ChakraProvider>
   )
 }

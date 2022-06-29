@@ -1,4 +1,4 @@
-import { Box, Center, Divider, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex} from "@chakra-ui/react";
 import Footer from "../footer/Footer";
 import Nav from "../nav/Nav";
 
@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <Flex w="100%" h={"100vh"} direction={"column"}>
             <Nav m={0} />
-            <Box m={"auto"}>
+            <Box w="100%" m={"auto"} >
                 {children}
             </Box>
             <Footer mt={"auto"} />

@@ -1,4 +1,4 @@
-import { Link, Flex, FlexProps, Heading, Box, IconButton, useBreakpointValue, Collapse, Stack, useDisclosure, useOutsideClick, Center, Spacer } from "@chakra-ui/react";
+import { Link, Flex, FlexProps, Heading, Box, IconButton, useBreakpointValue, Collapse, Stack, useDisclosure, useOutsideClick, Center, Spacer, Divider } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRef } from "react";
 import { MdClose, MdMenu } from "react-icons/md"
@@ -13,6 +13,7 @@ const Nav = (props: FlexProps) => {
         handler: onClose
     })
     const NavLinks = () => (<>
+        <NavLink href="/" text="Home" />
         <NavLink href="/blog" text="blog" />
         <NavLink href="/about" text="about" />
     </>)
@@ -23,7 +24,7 @@ const Nav = (props: FlexProps) => {
             align="center"
             justify="space-between"
             py={4}
-            px={{base: 2, sm: 12}}
+            px={{ base: 2, sm: 12 }}
             direction={["column", "row", "row", "row"]}
             ref={ref}
             {...props}
@@ -41,7 +42,8 @@ const Nav = (props: FlexProps) => {
                 </Box>
                 <Flex w="33%" justify={"right"} display={["flex", "none", "none", "none"]}>
                     <IconButton
-                        backgroundColor={"accent_yellow.100"}
+                        backgroundColor="inherit"
+                        _hover={{color: "accent_pink.100"}} 
                         aria-label="Navbar menu toggle"
                         onClick={onToggle}
                         icon={isOpen ? <MdClose /> : <MdMenu />}
@@ -49,7 +51,8 @@ const Nav = (props: FlexProps) => {
                 </Flex>
             </Flex>
             {collapse ?
-                <Collapse in={isOpen} animateOpacity >
+                <Collapse in={isOpen} animateOpacity>
+                    <Divider w={32}/>
                     <Stack direction={"column"} >
                         <NavLinks />
                     </Stack>
