@@ -1,7 +1,8 @@
-import { Center, Heading, Text } from '@chakra-ui/react';
+import { Center, Heading, Text, Wrap } from '@chakra-ui/react';
 import type { GetStaticProps, NextPage } from 'next'
 import { groq } from 'next-sanity';
 import AnimatedPage from '../components/AnimatedPage';
+import PostCard from '../components/PostCard';
 import { sanityClient } from '../lib/sanity';
 import Post from '../models/post';
 
@@ -12,11 +13,12 @@ interface Props {
 const query = groq`*[_type == "post"]`
 
 const Blog: NextPage<Props> = ({ posts }: Props) => {
-  console.log(posts)
   return (
     <AnimatedPage>
-      <Center mt={4}>
-        {posts.map((value: Post) => <Heading key={value.slug} as="h1" size="2xl">{value.title}</Heading>)}
+      <Center m={4}>
+        <Wrap>
+          {posts.map((value: Post) => <PostCard key={value.slug} post={value} />)}
+        </Wrap>
       </Center>
     </AnimatedPage>
   )
