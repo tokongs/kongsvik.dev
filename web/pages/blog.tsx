@@ -16,7 +16,7 @@ const Blog: NextPage<Props> = ({ posts }: Props) => {
   return (
     <AnimatedPage>
       <Center m={4}>
-        <Wrap>
+        <Wrap justify="center">
           {posts.map((value: Post) => <PostCard key={value.slug} post={value} />)}
         </Wrap>
       </Center>
