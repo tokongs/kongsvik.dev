@@ -29,24 +29,9 @@ const theme = extendTheme({
   },
 })
 
-export type NextPageWithColor = NextPage & {
-  getBackgroundColor?: () => string
-}
 
-type AppPropsWithColor = AppProps & {
-  Component: NextPageWithColor
-}
 
-const App = ({ Component, pageProps }: AppPropsWithColor) => {
-  const route = useRouter()
-  const controls = useAnimation()
-  useEffect(() => {
-
-    controls.start({
-      backgroundColor: (Component.getBackgroundColor && Component.getBackgroundColor()) || "#FFF",
-      transition: { duration: 0.5 }
-    })
-  }, [Component])
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ChakraProvider theme={theme}>
       <Head>
@@ -55,13 +40,9 @@ const App = ({ Component, pageProps }: AppPropsWithColor) => {
         <link rel="shortcut icon" href="/public/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <motion.main animate={controls} >
         <Layout>
-          <AnimatePresence exitBeforeEnter initial={false}>
-            <Component {...pageProps} key={route.route} />
-          </AnimatePresence>
+            <Component {...pageProps} />
         </Layout>
-      </motion.main>
     </ChakraProvider>
   )
 }

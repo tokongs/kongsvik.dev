@@ -1,17 +1,17 @@
-import { Center, Heading } from '@chakra-ui/react';
-import AnimatedPage from '../components/AnimatedPage';
-import type { NextPageWithColor } from './_app';
+import { Box, Text, Heading, Link } from '@chakra-ui/react';
+import { NextPage } from 'next';
 
-const About: NextPageWithColor = () => {
+const About: NextPage = () => {
   return (
-    <AnimatedPage>
-      <Center mt={4}>
-        <Heading as="h1" size="2xl">Hello, I&apos;m Tobias</Heading>
-      </Center>
-    </AnimatedPage>
+      <Box maxW="2xl" m="auto">
+        <Heading as="h1" size="xl" mb={4}>About the website</Heading>
+        <Text>This is a website based on NextJS serving content from a headless CMD called Sanity. 
+          It is hosted on Vercel and the code can be found in 
+        </Text>
+          <Link color="accent_pink.100" href="https://github.com/tokongs/kongsvik.dev" isExternal> this Github repository</Link>.
+      </Box>
   )
 }
 
-About.getBackgroundColor = () => "var(--chakra-colors-accent_green-100)"
 
 export default About;

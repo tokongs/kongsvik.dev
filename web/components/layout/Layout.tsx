@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <Flex w="100%" h={"100vh"} direction={"column"}>
             <Nav m={0} />
-            <Box w="100%" m={"auto"} >
+            <Box w="100%" p={12} mb="auto" >
                 {children}
             </Box>
             <Footer mt={"auto"} />

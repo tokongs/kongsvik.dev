@@ -8,18 +8,25 @@ interface ImageArgs {
     width?: number
     height?: number
 }
-export const useNextSanityImage = (args: ImageArgs) =>{
+interface ImageProps {
+    src: string
+    blurDataURL: string
+    placeholder: "blur"
+}
+
+export const useNextSanityImage = (args: ImageArgs): ImageProps => {
 
     let builder = createImageUrlBuider(config).image(args.src)
     const blurDataURL = builder.width(100).blur(50).url()
 
-    if (args.width) builder = builder.width(args.width) 
-    if (args.height) builder = builder.height(args.height) 
+    if (args.width) builder = builder.width(args.width)
+    if (args.height) builder = builder.height(args.height)
     const src = builder.url()
     return {
         src,
-        blurDataURL
+        blurDataURL,
+        placeholder: "blur"
     }
-} 
+}
 export const useCurrentUser = createCurrentUserHook(config)
 export const sanityClient = createClient(config)
