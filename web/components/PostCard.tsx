@@ -1,19 +1,16 @@
-import { Box, Image, Heading, Text, useBreakpointValue, useDimensions } from "@chakra-ui/react"
-import { useRef } from "react"
-import { urlFor } from "../lib/sanity"
+import { Box, Heading, Text } from "@chakra-ui/react"
+import Image from "next/image"
+import { useNextSanityImage } from "../lib/sanity"
 import Post from "../models/post"
 
 interface Props {
     post: Post
 }
 const PostCard = ({ post }: Props) => {
-    const ref = useRef(null)
-    const dimensions = useDimensions(ref)
-    const imageUrl = dimensions && post.mainImage &&
-        urlFor(post.mainImage).size(dimensions?.borderBox.width, dimensions?.borderBox.height / 2).url()
+    const imageProps = useNextSanityImage({ src: post.mainImage, width: 800, height: 400 })
     return (
-        <Box ref={ref} w={{ base: "xs", md: "sm" }} h="sm" borderWidth="1px" borderRadius="lg" >
-            {imageUrl && <Image borderTopRadius="lg" src={imageUrl} />}
+        <Box w={{ base: "xs", md: "sm" }} h="sm" borderWidth="1px" borderRadius="lg" >
+            <Image {...imageProps} style={{ borderTopRightRadius: "0.5rem", borderTopLeftRadius: "0.5rem" }} layout="responsive" width="100%" height="50%" />
             <Heading m="2" textAlign="center" as="h2" size="lg">{post.title}</Heading>
             <Text m="4" textAlign="center" noOfLines={5}>{post.body[0].children[0].text}</Text>
         </Box>
