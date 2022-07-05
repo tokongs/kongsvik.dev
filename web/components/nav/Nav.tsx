@@ -1,5 +1,5 @@
 import { Link, Flex, FlexProps, Heading, Box, IconButton, useBreakpointValue, Collapse, Stack, useDisclosure, useOutsideClick, Center, Spacer, Divider } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Link as RemixLink} from "@remix-run/react";
 import { useRef } from "react";
 import { MdClose, MdMenu } from "react-icons/md"
 import NavLink from "./NavLink";
@@ -13,9 +13,9 @@ const Nav = (props: FlexProps) => {
         handler: onClose
     })
     const NavLinks = () => (<>
-        <NavLink href="/" text="Home" />
-        <NavLink href="/blog" text="blog" />
-        <NavLink href="/about" text="about" />
+        <NavLink to="/" text="Home"/>
+        <NavLink to="/blog" text="blog" />
+        <NavLink to="/about" text="about" />
     </>)
 
     return (
@@ -33,11 +33,11 @@ const Nav = (props: FlexProps) => {
                 <Spacer w="33%" display={["block", "none", "none", "none"]} />
                 <Box w="33%" maxW="12em">
                     <Center>
-                        <NextLink href={"/"} passHref>
+                        <RemixLink to="/">
                             <Link style={{ textDecoration: 'none' }}>
                                 <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
                             </Link>
-                        </NextLink>
+                        </RemixLink>
                     </Center>
                 </Box>
                 <Flex w="33%" justify={"right"} display={["flex", "none", "none", "none"]}>

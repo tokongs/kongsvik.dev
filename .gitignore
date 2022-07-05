@@ -7,3 +7,17 @@ node_modules/
 # lerna files
 /lerna-debug.log
 dist/
+
+yarn-error.log
+
+node_modules/
+
+.cache/
+.env
+.vercel/
+.output/
+
+build/
+
+web/api/index.js
+web/api/index.js.map
