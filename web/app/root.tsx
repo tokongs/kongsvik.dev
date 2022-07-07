@@ -1,5 +1,4 @@
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
-import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -10,11 +9,6 @@ import {
 } from "@remix-run/react";
 import Layout from "components/layout/Layout";
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "Kongsvik",
-  viewport: "width=device-width,initial-scale=1",
-});
 
 const theme = extendTheme({
   colors: {

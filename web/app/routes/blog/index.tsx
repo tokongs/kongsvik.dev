@@ -1,9 +1,14 @@
 import { Center, Wrap } from "@chakra-ui/react"
-import { json } from "@remix-run/node";
+import { json, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react"
 import PostCard from "components/PostCard"
 import Post, { GetPosts } from "models/post.server";
+import { CustomMetaFunction } from "~/meta";
 
+
+export const meta: MetaFunction = CustomMetaFunction(
+    { title: "Blog", description: "Tobias Slettemoen Kongsvik's blog" }
+)
 
 type LoaderData = {
     posts: Awaited<ReturnType<typeof GetPosts>>;

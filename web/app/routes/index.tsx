@@ -1,5 +1,11 @@
 import { Stack, Heading } from "@chakra-ui/react";
+import { MetaFunction } from "@remix-run/node";
 import Clock from "components/clock/Clock";
+import { CustomMetaFunction } from "~/meta";
+
+export const meta: MetaFunction = CustomMetaFunction({
+  title: "Home", description: "Tobias Slettemoen Kongsvik's landing page and blog"
+})
 
 export default function Index() {
  return (
