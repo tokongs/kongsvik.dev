@@ -7,15 +7,22 @@ interface ImageArgs {
     width?: number
     height?: number
 }
-interface ImageProps {
-    src: string
-    blurDataURL: string
-    placeholder: "blur"
-}
 
+export const useSanityChakraImageProps = (img: ImageArgs) => {
+   let builder = createImageUrlBuider(config).image(img.src).auto("format");
 
-export const urlFor = (img: string) => {
-    return createImageUrlBuider(config).image(img);
+   const fallbackSrc = builder.width(100).blur(50).url()
+   if (img.height) {
+    builder = builder.height(img.height)
+   }
+   if (img.width) {
+    builder = builder.width(img.width)
+   }
+   const src = builder.url()
+    return {
+        src,
+        fallbackSrc
+    }
 }
 
 const client = sanityClient(config)

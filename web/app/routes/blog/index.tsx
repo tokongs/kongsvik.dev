@@ -18,9 +18,9 @@ export const loader = async () => {
 export default function Index() {
     const { posts } = useLoaderData<LoaderData>()
     return (
-        <Center m={4}>
+        <Center >
             <Wrap justify="center">
-                {posts.map((value: Post) => <PostCard key={value.title} post={value} />)}
+                {posts.map((value: Post) => <PostCard key={value.slug.current} post={value} />)}
             </Wrap>
         </Center>
     )
