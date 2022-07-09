@@ -1,7 +1,7 @@
 import { Center, Image, Heading, Stack } from "@chakra-ui/react";
-import { PortableText } from "@portabletext/react";
 import { json, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import PortableText from "components/portable/PortableText";
 import invariant from "tiny-invariant";
 import { CustomMetaFunction } from "~/meta";
 import { GetPost } from "~/post.server";
@@ -28,8 +28,8 @@ export default function Post() {
     const imgProps = useSanityChakraImageProps({ src: post.mainImage, width: 800, height: 400 })
     return (
         <Center>
-            <Stack w="2xl">
-                <Heading mb={8}>{post.title}</Heading>
+            <Stack maxW="4xl" m="8">
+                <Heading as="h1" size="4xl" mb={8}>{post.title}</Heading>
                 <Image pb={8} {...imgProps} w="100%" h="50%" />
                 <PortableText
                     value={post.body}

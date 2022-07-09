@@ -8,11 +8,9 @@ interface Props {
 const NavLink = ({to, text}: Props) => {
     return (
         <RemixLink to={to} prefetch="intent">
-            <Link style={{ textDecoration: 'none' }}>
                 <Text _hover={{ color: "accent_pink.100" }} my="auto" transitionDuration={"0.3s"} textTransform={"uppercase"} textAlign="center">
                    {text} 
                 </Text>
-            </Link>
         </RemixLink>
     )
 }
