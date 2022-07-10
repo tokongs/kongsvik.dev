@@ -4,6 +4,7 @@ import BlockQuote from "./BlockQuote"
 import PortableImage from "./PortableImage"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import CodeBlock from "./CodeBlock";
 interface Props {
     value: any
 }
@@ -11,7 +12,7 @@ interface Props {
 const portableComponents: Partial<PortableTextReactComponents> = {
     types: {
         image: PortableImage,
-        code: ({ value }: PortableTextTypeComponentProps<any>) => <SyntaxHighlighter style={atomOneLight} language={"javascript"}>{value.code}</SyntaxHighlighter>
+        code: CodeBlock
     },
     marks: {
         strong: ({ children }: PortableTextMarkComponentProps<any>) => <Text fontWeight="bold" fontSize="lg">{children}</Text>,
