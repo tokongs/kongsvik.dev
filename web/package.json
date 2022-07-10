@@ -19,6 +19,7 @@
     "@sanity/asset-utils": "^1.2.3",
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
+    "@types/react-syntax-highlighter": "^15.5.2",
     "@vercel/node": "^2.4.0",
     "framer-motion": "^6",
     "groq": "^2.29.3",
@@ -26,6 +27,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-social-icons": "^5.13.0",
+    "react-syntax-highlighter": "^15.5.0",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
