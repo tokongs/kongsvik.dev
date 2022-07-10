@@ -13,16 +13,17 @@ export interface MetaFunctionArgs<LoaderData> {
 interface CustomMetaArgs<LoaderData> {
     title: string | ((args: MetaFunctionArgs<LoaderData>) => string)
     description: string | ((args: MetaFunctionArgs<LoaderData>) => string)
-    imageUrl?: string | ((args: MetaFunctionArgs<LoaderData>) => string)
+    imageSrc?: string | ((args: MetaFunctionArgs<LoaderData>) => string)
 }
 
 export const CustomMetaFunction = <LoaderData>(input: CustomMetaArgs<LoaderData>): MetaFunction => {
     return (args: MetaFunctionArgs<LoaderData>): HtmlMetaDescriptor => {
         const title = typeof input.title == "string" ? `Kongsvik | ${input.title}` : input.title(args);
         const description = typeof input.description == "string" ? input.description : input.description(args);
-        let imageUrl = imageUrlBuilderFor("image-977b4bac71559133b10faaac46c19118a61312d1-1920x500-png").url()
-        if (input.imageUrl)
-            imageUrl = typeof input.imageUrl == "string" ? input.imageUrl : input.imageUrl(args);
+        let imageSrc = "image-977b4bac71559133b10faaac46c19118a61312d1-1920x500-png"
+        if (input.imageSrc)
+            imageSrc = typeof input.imageSrc == "string" ? input.imageSrc : input.imageSrc(args);
+        const imageUrl = imageUrlBuilderFor(imageSrc).size(1200, 630).auto("format").url()
 
         const url = `https://kongsvik.dev${args.location.pathname}`
         return {

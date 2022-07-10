@@ -10,7 +10,7 @@ import { imageUrlBuilderFor, useSanityChakraImageProps } from "~/sanity";
 export const meta: MetaFunction = CustomMetaFunction<LoaderData>({
     title: ({ data }) => data.post.title,
     description: ({data}) => data.post.description,
-    imageUrl: ({data}) => imageUrlBuilderFor(data.post.mainImage).url()
+    imageSrc: ({data}) => data.post.mainImage,
 })
 
 type LoaderData = {
