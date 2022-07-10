@@ -13,7 +13,9 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/vision",
-    "@sanity/code-input"
+    "@sanity/code-input",
+    "asset-source-unsplash",
+    "media"
   ],
   "parts": [
     {
