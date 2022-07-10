@@ -23,7 +23,7 @@ export const CustomMetaFunction = <LoaderData>(input: CustomMetaArgs<LoaderData>
         let imageSrc = "image-977b4bac71559133b10faaac46c19118a61312d1-1920x500-png"
         if (input.imageSrc)
             imageSrc = typeof input.imageSrc == "string" ? input.imageSrc : input.imageSrc(args);
-        const imageUrl = imageUrlBuilderFor(imageSrc).size(1200, 630).auto("format").url()
+        const imageUrl = imageUrlBuilderFor(imageSrc).auto("format").url()
 
         const url = `https://kongsvik.dev${args.location.pathname}`
         return {

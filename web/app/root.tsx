@@ -30,6 +30,13 @@ const theme = extendTheme({
     heading: `'Inter', sans-serif`,
     body: `'Roboto', sans-serif`,
   },
+  styles: {
+    global: {
+      "p, li": {
+        fontSize: "lg",
+      }
+    }
+  }
 })
 
 export default function App() {

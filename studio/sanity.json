@@ -15,12 +15,17 @@
     "@sanity/vision",
     "@sanity/code-input",
     "asset-source-unsplash",
-    "media"
+    "media",
+    "social-preview"
   ],
   "parts": [
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
     }
   ]
 }

@@ -15,12 +15,11 @@ const portableComponents: Partial<PortableTextReactComponents> = {
         code: CodeBlock
     },
     marks: {
-        strong: ({ children }: PortableTextMarkComponentProps<any>) => <Text fontWeight="bold" fontSize="lg">{children}</Text>,
-        em: ({ children }: PortableTextMarkComponentProps<any>) => <Text as="em" fontSize="lg">{children}</Text>,
+        strong: ({ children }: PortableTextMarkComponentProps<any>) => <Text fontWeight="bold">{children}</Text>,
+        em: ({ children }: PortableTextMarkComponentProps<any>) => <Text as="em">{children}</Text>,
         code: ({ children }: PortableTextMarkComponentProps<any>) => <Code
             color="accent_pink.100"
             backgroundColor="blackAlpha.50"
-            fontSize="lg"
             borderColor="blackAlpha.200"
             borderWidth={2}
             borderRadius="sm"
@@ -33,15 +32,15 @@ const portableComponents: Partial<PortableTextReactComponents> = {
         number: ({ children }: PortableTextComponentProps<any>) => <OrderedList listStylePos="inside">{children}</OrderedList>
     },
     listItem: {
-        bullet: ({ children }: PortableTextComponentProps<any>) => <ListItem fontSize="lg">{children}</ListItem>,
-        number: ({ children }: PortableTextComponentProps<any>) => <ListItem fontSize="lg">{children}</ListItem>
+        bullet: ({ children }: PortableTextComponentProps<any>) => <ListItem>{children}</ListItem>,
+        number: ({ children }: PortableTextComponentProps<any>) => <ListItem>{children}</ListItem>
     },
     block: {
         h1: ({ children }: PortableTextComponentProps<any>) => <Heading as="h1" size="4xl">{children}</Heading>,
         h2: ({ children }: PortableTextComponentProps<any>) => <Heading as="h2" size="3xl">{children}</Heading>,
         h3: ({ children }: PortableTextComponentProps<any>) => <Heading as="h3" size="2xl">{children}</Heading>,
         h4: ({ children }: PortableTextComponentProps<any>) => <Heading as="h4" size="xl">{children}</Heading>,
-        normal: ({ children }: PortableTextComponentProps<any>) => <Text fontSize="lg">{children}</Text>,
+        normal: ({ children }: PortableTextComponentProps<any>) => <Text>{children}</Text>,
         blockquote: BlockQuote
     }
 }
