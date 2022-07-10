@@ -14,7 +14,6 @@ const Nav = (props: FlexProps) => {
     })
     const NavLinks = () => (<>
         <NavLink to="/" text="Home"/>
-        <NavLink to="/blog" text="blog" />
         <NavLink to="/about" text="about" />
     </>)
 

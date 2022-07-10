@@ -12,7 +12,7 @@ const PostCard = ({ post }: Props) => {
         <LinkBox as="article" w={{ base: "2xs", sm: "xs", md: "md" }} h={{ base: "2xs", sm: "xs", md: "md" }} borderWidth="1px" borderRadius="lg" overflow="hidden">
             <Image {...imgProps} w="100%" h="50%" borderTopRadius="lg" />
             <Heading m="2" textAlign="center" as="h2" size="lg">
-                <LinkOverlay as={Link} to={post.slug.current}>
+                <LinkOverlay as={Link} to={`blog/${post.slug.current}`}>
                     {post.title}
                 </LinkOverlay>
             </Heading>

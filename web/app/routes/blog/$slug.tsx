@@ -5,11 +5,12 @@ import PortableText from "components/portable/PortableText";
 import invariant from "tiny-invariant";
 import { CustomMetaFunction } from "~/meta";
 import { GetPost } from "~/post.server";
-import { useSanityChakraImageProps } from "~/sanity";
+import { imageUrlBuilderFor, useSanityChakraImageProps } from "~/sanity";
 
 export const meta: MetaFunction = CustomMetaFunction<LoaderData>({
     title: ({ data }) => data.post.title,
-    description: ({data}) => data.post.title
+    description: ({data}) => data.post.title,
+    imageUrl: ({data}) => imageUrlBuilderFor(data.post.mainImage).url()
 })
 
 type LoaderData = {
