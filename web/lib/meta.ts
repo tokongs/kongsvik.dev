@@ -24,16 +24,23 @@ export const CustomMetaFunction = <LoaderData>(input: CustomMetaArgs<LoaderData>
         if (input.imageUrl)
             imageUrl = typeof input.imageUrl == "string" ? input.imageUrl : input.imageUrl(args);
 
+        const url = `https://kongsvik.dev${args.location.pathname}`
         return {
             title,
             description,
             charset: "utf-8",
             "og:type": "website",
-            "og:url": `https://kongsvik.dev${args.location.pathname}`,
+            "og:url": url,
             "og:title": title,
             "og:description": description,
             "og:image": imageUrl,
             "og:site_name": "Kongsvik.dev",
+            "twitter:card": "summary_large_image",
+            "twitter:url": url,
+            "twitter:title": title,
+            "twitter:description": description,
+            "twitter:image": imageUrl,
+
             viewport: "width=device-width,initial-scale=1",
         }
     }

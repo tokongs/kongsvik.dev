@@ -6,6 +6,7 @@ import Slug from "./slug"
 
 interface Post {
     title: string
+    description: string,
     slug: Slug
     author: Author
     mainImage: string
