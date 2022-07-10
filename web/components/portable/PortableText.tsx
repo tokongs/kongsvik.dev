@@ -29,8 +29,8 @@ const portableComponents: Partial<PortableTextReactComponents> = {
         link: ({ value, children }: PortableTextMarkComponentProps<any>) => <Link color="accent_pink.100" href={value.href} fontSize="lg">{children}</Link>,
     },
     list: {
-        bullet: ({ children }: PortableTextComponentProps<any>) => <UnorderedList>{children}</UnorderedList>,
-        number: ({ children }: PortableTextComponentProps<any>) => <OrderedList>{children}</OrderedList>
+        bullet: ({ children }: PortableTextComponentProps<any>) => <UnorderedList listStylePos="inside">{children}</UnorderedList>,
+        number: ({ children }: PortableTextComponentProps<any>) => <OrderedList listStylePos="inside">{children}</OrderedList>
     },
     listItem: {
         bullet: ({ children }: PortableTextComponentProps<any>) => <ListItem fontSize="lg">{children}</ListItem>,
