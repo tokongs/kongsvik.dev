@@ -1,5 +1,5 @@
 import { Link, Flex, FlexProps, Heading, Box, IconButton, useBreakpointValue, Collapse, Stack, useDisclosure, useOutsideClick, Center, Spacer, Divider } from "@chakra-ui/react";
-import { Link as RemixLink} from "@remix-run/react";
+import { Link as RemixLink } from "@remix-run/react";
 import { useRef } from "react";
 import { MdClose, MdMenu } from "react-icons/md"
 import NavLink from "./NavLink";
@@ -13,7 +13,7 @@ const Nav = (props: FlexProps) => {
         handler: onClose
     })
     const NavLinks = () => (<>
-        <NavLink to="/" text="Home"/>
+        <NavLink to="/" text="Home" />
         <NavLink to="/about" text="about" />
     </>)
 
@@ -32,17 +32,17 @@ const Nav = (props: FlexProps) => {
                 <Spacer w="33%" display={["block", "none", "none", "none"]} />
                 <Box w="33%" maxW="12em">
                     <Center>
-                        <RemixLink to="/">
-                            <Link style={{ textDecoration: 'none' }}>
-                                <Heading color={"accent_pink.100"} fontWeight="black">KONGSVIK</Heading>
+                        <Heading color={"accent_pink.100"} fontWeight="black">
+                            <Link as={RemixLink} to="/" style={{ textDecoration: 'none' }}>
+                                KONGSVIK
                             </Link>
-                        </RemixLink>
+                        </Heading>
                     </Center>
                 </Box>
                 <Flex w="33%" justify={"right"} display={["flex", "none", "none", "none"]}>
                     <IconButton
                         backgroundColor="inherit"
-                        _hover={{color: "accent_pink.100"}} 
+                        _hover={{ color: "accent_pink.100" }}
                         aria-label="Navbar menu toggle"
                         onClick={onToggle}
                         icon={isOpen ? <MdClose /> : <MdMenu />}
@@ -51,7 +51,7 @@ const Nav = (props: FlexProps) => {
             </Flex>
             {collapse ?
                 <Collapse in={isOpen} animateOpacity>
-                    <Divider w={32}/>
+                    <Divider w={32} />
                     <Stack direction={"column"} >
                         <NavLinks />
                     </Stack>
