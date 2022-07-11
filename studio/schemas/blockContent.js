@@ -15,7 +15,7 @@ export default {
         { title: 'Quote', value: 'blockquote' },
       ],
       lists: [
-        { title: 'Bullet', value: 'bullet' }, 
+        { title: 'Bullet', value: 'bullet' },
         { title: 'Numbered', value: 'number' },
       ],
       marks: {
@@ -43,12 +43,19 @@ export default {
     {
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt text",
+          type: "string"
+        },
+      ],
     },
     {
       type: 'code',
       options: {
         withFilename: true,
-      }
+      },
     }
   ],
 }

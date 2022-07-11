@@ -4,12 +4,17 @@ import Author from "./author"
 import Category from "./category"
 import Slug from "./slug"
 
+export type SanityImage = {
+    asset: any
+    alt?: string
+}
+
 interface Post {
     title: string
     description: string,
     slug: Slug
     author: Author
-    mainImage: string
+    mainImage: SanityImage
     categories: Category[]
     publishedAt: string
     body: any[]
