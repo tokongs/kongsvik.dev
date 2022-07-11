@@ -6,6 +6,8 @@ import invariant from "tiny-invariant";
 import { CustomMetaFunction } from "~/meta";
 import { GetPost } from "~/post.server";
 import { imageUrlBuilderFor, useSanityChakraImageProps } from "~/sanity";
+import {HandleStructuredData} from "remix-utils"
+import {WithContext, BlogPosting} from "schema-dts"
 
 export const meta: MetaFunction = CustomMetaFunction<LoaderData>({
     title: ({ data }) => data.post.title,
@@ -39,3 +41,28 @@ export default function Post() {
         </Center>
     )
 }
+
+export const handle: HandleStructuredData<LoaderData> = {
+  structuredData(data: LoaderData) {
+      let { post } = data;
+      let postSchema: WithContext<BlogPosting> = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        datePublished: post.publishedAt,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://kongsvik.dev/blog/${post.slug.current}`,
+        },
+        headline: post.title,
+        description: post.description,
+        image: imageUrlBuilderFor(post.mainImage).url(),
+        author: {
+          "@type": "Person",
+          name: "Tobias Slettemoen Kongsvik",
+          url: "https://kongsvik.dev/about"
+        },
+      };
+
+      return postSchema;
+  }
+};

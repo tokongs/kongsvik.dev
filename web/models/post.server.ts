@@ -11,7 +11,7 @@ interface Post {
     author: Author
     mainImage: string
     categories: Category[]
-    publishedAt: Date
+    publishedAt: string
     body: any[]
 }
 

@@ -8,7 +8,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import Layout from "components/layout/Layout";
-
+import { StructuredData } from "remix-utils"
 
 const theme = extendTheme({
   colors: {
@@ -45,6 +45,7 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <StructuredData />
       </head>
       <ChakraProvider theme={theme}>
         <body>

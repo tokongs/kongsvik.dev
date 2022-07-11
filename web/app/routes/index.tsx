@@ -4,7 +4,8 @@ import { useLoaderData } from "@remix-run/react"
 import PostCard from "components/PostCard"
 import Post, { GetPosts } from "models/post.server";
 import { CustomMetaFunction } from "~/meta";
-
+import { HandleStructuredData } from "remix-utils"
+import { WithContext, ItemList } from "schema-dts"
 
 export const meta: MetaFunction = CustomMetaFunction(
     { title: "Blog", description: "Software development blog focusing on fun and interesting technologies." }
@@ -30,3 +31,20 @@ export default function Index() {
         </Center>
     )
 }
+
+export const handle: HandleStructuredData<LoaderData> = {
+    structuredData(data: LoaderData) {
+        let { posts } = data;
+        let postSchema: WithContext<ItemList> = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: posts.map((post, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                url: `https://kongsvik.dev/blog/${post.slug.current}`
+            })),
+        };
+
+        return postSchema;
+    }
+};
