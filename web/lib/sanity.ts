@@ -29,7 +29,7 @@ export const useSanityChakraImageProps = (img: ImageArgs) => {
     }
 }
 
-export const imageUrlBuilderFor = (src: string) => createImageUrlBuider(config).image(src)
+export const imageUrlBuilderFor = (src: string | SanityImage) => createImageUrlBuider(config).image(src)
 
 const client = sanityClient(config)
 export default client
