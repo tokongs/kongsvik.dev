@@ -5,6 +5,7 @@ import blockContent from './blockContent'
 import category from './category'
 import post from './post'
 import author from './author'
+import about from './about'
 
 export default createSchema({
   name: 'default',
@@ -13,5 +14,6 @@ export default createSchema({
     author,
     category,
     blockContent,
+    about,
   ]),
 })

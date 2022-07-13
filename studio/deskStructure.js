@@ -6,16 +6,16 @@ export const getDefaultDocumentNode = ({ schemaType }) => {
     return S.document().views([
       S.view.form(),
       S.view.component(SocialPreview({
-          prepareFunction: (
-            { title, description, mainImage, slug} 
-          ) => ({
-            title,
-            description,
-            slug,
-            ogImage: mainImage,
-            siteUrl: `https://kongsvik.dev/blog/${slug ? slug.current : ""}`,
-          }),
-        })).title('Social & SEO'),
+        prepareFunction: (
+          { title, description, mainImage, slug }
+        ) => ({
+          title,
+          description,
+          slug,
+          ogImage: mainImage,
+          siteUrl: `https://kongsvik.dev/blog/${slug ? slug.current : ""}`,
+        }),
+      })).title('Social & SEO'),
     ])
   }
   return S.document().views([S.view.form()])
@@ -23,7 +23,14 @@ export const getDefaultDocumentNode = ({ schemaType }) => {
 
 export default () =>
   S.list()
-    .title('Content')
-    .items(
-      S.documentTypeListItems()
-    )
+    .title('Base')
+    .items([
+      S.listItem()
+        .title("About")
+        .child(
+          S.document()
+            .schemaType("about")
+            .documentId("about")
+        ),
+      ...S.documentTypeListItems().filter(item => !["about"].includes(item.getId()))
+    ])
