@@ -36,11 +36,11 @@ const portableComponents: Partial<PortableTextReactComponents> = {
         number: ({ children }: PortableTextComponentProps<any>) => <ListItem>{children}</ListItem>
     },
     block: {
-        h1: ({ children }: PortableTextComponentProps<any>) => <Heading as="h1" size="4xl">{children}</Heading>,
-        h2: ({ children }: PortableTextComponentProps<any>) => <Heading as="h2" size="3xl">{children}</Heading>,
-        h3: ({ children }: PortableTextComponentProps<any>) => <Heading as="h3" size="2xl">{children}</Heading>,
-        h4: ({ children }: PortableTextComponentProps<any>) => <Heading as="h4" size="xl">{children}</Heading>,
-        normal: ({ children }: PortableTextComponentProps<any>) => <Text>{children}</Text>,
+        h1: ({ children }: PortableTextComponentProps<any>) => <Heading as="h1" size="3xl" mb={6}>{children}</Heading>,
+        h2: ({ children }: PortableTextComponentProps<any>) => <Heading as="h2" size="xl" mb={4}>{children}</Heading>,
+        h3: ({ children }: PortableTextComponentProps<any>) => <Heading as="h3" size="lg" mb={4}>{children}</Heading>,
+        h4: ({ children }: PortableTextComponentProps<any>) => <Heading as="h4" size="lg" mb={4}>{children}</Heading>,
+        normal: ({ children }: PortableTextComponentProps<any>) => <Text mb={4}>{children}</Text>,
         blockquote: BlockQuote
     }
 }
