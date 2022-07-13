@@ -18,6 +18,7 @@ interface Post {
     categories: Category[]
     publishedAt: string
     body: any[]
+    _updatedAt: string
 }
 
 export async function GetPosts(): Promise<Post[]> {

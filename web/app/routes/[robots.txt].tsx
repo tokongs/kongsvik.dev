@@ -3,6 +3,7 @@ export const loader = () => {
     User-agent: *
     Allow: /
 
+    Sitemap: https://kongsvik.dev/sitemap.xml
     `
     return new Response(robotText,{
       status: 200,
