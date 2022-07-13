@@ -9,6 +9,7 @@ import {
 } from "@remix-run/react";
 import Layout from "components/layout/Layout";
 import { StructuredData } from "remix-utils"
+import * as gtag from "~/utils/gtags.client";
 
 const theme = extendTheme({
   colors: {
@@ -46,6 +47,24 @@ export default function App() {
         <Meta />
         <Links />
         <StructuredData />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-97NCV1GDZK"
+        />
+        <script
+          async
+          id="gtag-init"
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-97NCV1GDZK', {
+                  page_path: window.location.pathname,
+                });
+              `
+          }}
+        />
       </head>
       <ChakraProvider theme={theme}>
         <body>
