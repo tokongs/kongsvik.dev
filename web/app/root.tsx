@@ -69,10 +69,10 @@ export default function App() {
         <body>
           <Layout>
             <Outlet />
-            <ScrollRestoration />
-            <Scripts />
-            <LiveReload />
           </Layout>
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
         </body>
       </ChakraProvider>
     </html>
