@@ -19,7 +19,7 @@ export const useSanityChakraImageProps = (img: ImageArgs) => {
     if (img.width) {
         builder = builder.width(img.width)
     }
-    const alt = typeof(img.src) != "string" ? img.src.alt : undefined
+    const alt = typeof (img.src) != "string" ? img.src.alt : undefined
 
     const src = builder.url()
     return {
@@ -32,4 +32,8 @@ export const useSanityChakraImageProps = (img: ImageArgs) => {
 export const imageUrlBuilderFor = (src: string | SanityImage) => createImageUrlBuider(config).image(src)
 
 const client = sanityClient(config)
+export const previewClient = sanityClient({
+    ...config,
+    token: '<your token with read access only>'
+})
 export default client

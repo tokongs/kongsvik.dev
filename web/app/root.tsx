@@ -9,7 +9,6 @@ import {
 } from "@remix-run/react";
 import Layout from "components/layout/Layout";
 import { StructuredData } from "remix-utils"
-import * as gtag from "~/utils/gtags.client";
 
 const theme = extendTheme({
   colors: {

@@ -1,5 +1,5 @@
 import { Center, Text, Image, Heading, Stack, Box } from "@chakra-ui/react";
-import { json, MetaFunction } from "@remix-run/node";
+import { DataFunctionArgs, json, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import PortableText from "components/portable/PortableText";
 import invariant from "tiny-invariant";
@@ -19,7 +19,7 @@ type LoaderData = {
     post: Awaited<ReturnType<typeof GetPost>>;
 };
 
-export const loader = async ({ params }: any) => {
+export const loader = async ({ params }: DataFunctionArgs) => {
     invariant(params.slug, "Expected params.slug")
     return json<LoaderData>({
         post: await GetPost(params.slug),
