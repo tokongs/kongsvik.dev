@@ -7,7 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import Layout from "components/layout/Layout";
+import Layout from "app/components/layout/Layout";
 import { StructuredData } from "remix-utils"
 
 const theme = extendTheme({
@@ -71,10 +71,10 @@ export default function App() {
             <Outlet />
           </Layout>
           <ScrollRestoration />
-          <Scripts />
-          <LiveReload />
         </body>
       </ChakraProvider>
+      <Scripts />
+      <LiveReload />
     </html>
   );
 }

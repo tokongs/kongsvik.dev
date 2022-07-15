@@ -1,13 +1,14 @@
 import { Center, Text, Image, Heading, Stack, Box } from "@chakra-ui/react";
 import { json, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import PortableText from "components/portable/PortableText";
+import PortableText from "app/components/portable/PortableText";
 import invariant from "tiny-invariant";
-import { CustomMetaFunction } from "~/meta";
-import { GetPost } from "~/post.server";
-import { imageUrlBuilderFor, useSanityChakraImageProps } from "~/sanity";
+import { CustomMetaFunction } from "../lib/meta";
+import { GetPost } from "app/models/post.server";
+import { imageUrlBuilderFor, useSanityChakraImageProps } from "../lib/sanity";
 import { HandleStructuredData } from "remix-utils"
 import { WithContext, BlogPosting } from "schema-dts"
+import { dateToDisplayString } from "../lib/utils";
 
 export const meta: MetaFunction = CustomMetaFunction<LoaderData>({
     title: ({ data }) => data.post.title,
@@ -25,9 +26,6 @@ export const loader = async ({ params }: any) => {
         post: await GetPost(params.slug),
     });
 };
-const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-];
 
 export default function Post() {
     const { post } = useLoaderData<LoaderData>()
@@ -38,7 +36,7 @@ export default function Post() {
             <Stack maxW="4xl" m="8">
                 <Box mb={6}>
                     <Heading as="h1" size="4xl" mb={2}>{post.title}</Heading>
-                    <Text>Published {monthNames[publishDate.getMonth()]} {publishDate.getDate()}, {publishDate.getFullYear()}</Text>
+                    <Text>Published {dateToDisplayString(publishDate)}</Text>
                 </Box>
                 <Image pb={8} {...imgProps} w="100%" h="50%" />
                 <PortableText

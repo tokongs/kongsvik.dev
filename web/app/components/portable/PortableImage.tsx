@@ -1,7 +1,7 @@
 import { Image } from "@chakra-ui/react"
 import { PortableTextTypeComponentProps } from "@portabletext/react"
 import { getImageDimensions } from "@sanity/asset-utils"
-import { useSanityChakraImageProps } from "~/sanity"
+import { useSanityChakraImageProps } from "app/lib/sanity"
 
 const PortableImage = ({ value, isInline }: PortableTextTypeComponentProps<any>) => {
     const { width, height } = getImageDimensions(value)

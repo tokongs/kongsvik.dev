@@ -29,8 +29,7 @@ const Nav = (props: FlexProps) => {
             {...props}
         >
             <Flex justify="space-between" w="100%" >
-                <Spacer w="33%" display={["block", "none", "none", "none"]} />
-                <Box w="33%" maxW="12em">
+                <Box>
                     <Center>
                         <Heading color={"accent_pink.100"} fontWeight="black">
                             <Link as={RemixLink} to="/" style={{ textDecoration: 'none' }}>
@@ -39,7 +38,7 @@ const Nav = (props: FlexProps) => {
                         </Heading>
                     </Center>
                 </Box>
-                <Flex w="33%" justify={"right"} display={["flex", "none", "none", "none"]}>
+                <Flex justify={"right"} display={["flex", "none", "none", "none"]}>
                     <IconButton
                         backgroundColor="inherit"
                         _hover={{ color: "accent_pink.100" }}

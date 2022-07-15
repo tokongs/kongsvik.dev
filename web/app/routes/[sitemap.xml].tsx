@@ -1,4 +1,4 @@
-import { GetPosts } from "~/post.server";
+import { GetPosts } from "app/models/post.server";
 
 export const loader = async () => {
   const baseUrl = "https://kongsvik.dev"

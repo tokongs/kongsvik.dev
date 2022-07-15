@@ -1,9 +1,7 @@
 import { Code, Heading, Link, ListItem, OrderedList, Text, UnorderedList } from "@chakra-ui/react"
-import { PortableText, PortableTextComponentProps, PortableTextMarkComponentProps, PortableTextReactComponents, PortableTextTypeComponentProps } from "@portabletext/react"
+import { PortableText, PortableTextComponentProps, PortableTextMarkComponentProps, PortableTextReactComponents } from "@portabletext/react"
 import BlockQuote from "./BlockQuote"
 import PortableImage from "./PortableImage"
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import CodeBlock from "./CodeBlock";
 interface Props {
     value: any

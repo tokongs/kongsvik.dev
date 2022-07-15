@@ -1,9 +1,9 @@
 import { Center, Wrap } from "@chakra-ui/react"
 import { json, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react"
-import PostCard from "components/PostCard"
-import Post, { GetPosts } from "models/post.server";
-import { CustomMetaFunction } from "~/meta";
+import PostCard from "app/components/PostCard"
+import Post, { GetPosts } from "app/models/post.server";
+import { CustomMetaFunction } from "../lib/meta";
 import { HandleStructuredData } from "remix-utils"
 import { WithContext, ItemList } from "schema-dts"
 
