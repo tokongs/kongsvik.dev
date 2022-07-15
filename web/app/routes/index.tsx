@@ -17,7 +17,7 @@ type LoaderData = {
 
 export const loader = async () => {
     return json<LoaderData>({
-        posts: await GetPosts(),
+        posts: await GetPosts()
     });
 };
 

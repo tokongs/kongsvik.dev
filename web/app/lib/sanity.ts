@@ -12,13 +12,13 @@ interface ImageArgs {
 export const useSanityChakraImageProps = (img: ImageArgs) => {
     let builder = createImageUrlBuider(config).image(img.src).auto("format");
 
-    const fallbackSrc = builder.width(100).blur(50).url()
     if (img.height) {
         builder = builder.height(img.height)
     }
     if (img.width) {
         builder = builder.width(img.width)
     }
+    const fallbackSrc = builder.quality(5).url()
     const alt = typeof(img.src) != "string" ? img.src.alt : undefined
 
     const src = builder.url()

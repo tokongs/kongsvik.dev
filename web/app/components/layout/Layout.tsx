@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
 
     return (
         <Flex w="100%" h={"100vh"} direction={"column"}>
-            <Nav m={0} />
+            <Nav px={6} py={4}/>
             <Box w="100%" pt={12} mb="auto" >
                 {children}
             </Box>

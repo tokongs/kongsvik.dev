@@ -33,7 +33,7 @@ const theme = extendTheme({
   styles: {
     global: {
       "p, li": {
-        fontSize: "lg",
+        fontSize: "md",
       }
     }
   }
@@ -71,10 +71,10 @@ export default function App() {
             <Outlet />
           </Layout>
           <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
         </body>
       </ChakraProvider>
-      <Scripts />
-      <LiveReload />
     </html>
   );
 }
